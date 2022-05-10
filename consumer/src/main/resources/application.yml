@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        handle-in-0:
+          destination: testEmbeddedIn
+          content-type: json # text/plain
+          group: consumer-group_01
+        handle-out-0:
+          destination: testEmbeddedOut
+      kafka:
+        binder:
+          brokers: 81.68.76.15:9092
+          configuration:
+            key.serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+            value.serializer: org.apache.kafka.common.serialization.ByteArraySerializer
