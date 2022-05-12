@@ -1,10 +1,11 @@
 package com.example.consumer;
 
-//import org.apache.kafka.clients.consumer.Consumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 @SpringBootApplication
 public class ConsumerApplication {
@@ -13,22 +14,48 @@ public class ConsumerApplication {
         SpringApplication.run(ConsumerApplication.class, args);
     }
 
-    public Consumer<Person> get(){
-        return person -> System.out.println(person);
-
+//    @Bean
+//    public Consumer<String> get(){
+//        return string -> System.out.println(string);
+//
+//    }
+//
+    @Bean
+    public Function<String, String> upperCase() {
+        return value -> {
+            System.out.println("Received: " + value);
+            return value.toUpperCase();
+        };
     }
 
-    public class Person {
-        private String name;
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public String toString() {
-            return this.name;
-        }
+//    @Bean
+//    public Consumer<String> sink() {
+//        System.out.println("0000");
+//        return System.out::println;
+//    }
+    @Bean
+    public Function<String,String> randomStr() {
+        return s -> {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "product";
+        };
     }
+
+//    public class Person {
+//        private String name;
+//        public String getName() {
+//            return name;
+//        }
+//        public void setName(String name) {
+//            this.name = name;
+//        }
+//        public String toString() {
+//            return this.name;
+//        }
+//    }
 
 }

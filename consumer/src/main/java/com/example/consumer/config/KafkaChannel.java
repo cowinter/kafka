@@ -1,5 +1,6 @@
 package com.example.consumer.config;
 
+import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 
 /**
@@ -13,7 +14,7 @@ public interface KafkaChannel {
     String TOPIC_OUT = "topic_out";
     String TOPIC_INPUT = "topic_input";
 
-//    @Output("")
+
     MessageChannel sendDefaultMsg();
 
     MessageChannel sendTopicMsg();
