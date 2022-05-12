@@ -2,17 +2,17 @@ spring:
   cloud:
     stream:
       bindings:
-        upperCase-in-0:
+        toUpperCase-in-0:
           group: consumer-group_01
           destination: topic-test-02
-          content-type: text/plain
+#          content-type: text/plain
 #        sink-in-0:
 #          group: consumer-group_01
 #          destination: topic-test-02
 #          content-type: text/plain
-        randomStr-out-0:
-          destination: topic-test-02
-          content-type: text/plain
+#        stringSupplier-out-0:
+#          destination: topic-test-02
+#          content-type: text/plain
       kafka:
         binder:
           brokers: 81.68.76.15:9092

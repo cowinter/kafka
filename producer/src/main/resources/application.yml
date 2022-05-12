@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+      #          content-type: text/plain
+      #        sink-in-0:
+      #          group: consumer-group_01
+      #          destination: topic-test-02
+      #          content-type: text/plain
+              stringSupplier-out-0:
+                destination: topic-test-02
+#                content-type: text/plain
+      kafka:
+        binder:
+          brokers: 81.68.76.15:9092
+          configuration:
+            key.serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+            value.serializer: org.apache.kafka.common.serialization.ByteArraySerializer
