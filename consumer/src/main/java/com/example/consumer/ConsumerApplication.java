@@ -13,6 +13,10 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+/**
+ * Spring Cloud Kafka
+ * Consumer
+ */
 @SpringBootApplication
 public class ConsumerApplication {
 

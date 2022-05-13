@@ -1,9 +1,16 @@
+server:
+  port: 8100
 spring:
   cloud:
+    function:
+      definition: toUpperCase;toLowerCase # 支持 single application可以有多个消费者或生产者
     stream:
       bindings:
         toUpperCase-in-0:
           group: consumer-group_01
+          destination: topic-test-02
+        toLowerCase-in-0:
+          group: consumer-group_02
           destination: topic-test-02
 #          content-type: text/plain
 #        sink-in-0:
